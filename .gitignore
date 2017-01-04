@@ -9,6 +9,7 @@ compile
 config.guess
 config.h
 config.h.in
+config.h.in~
 config.log
 config.status
 config.sub
@@ -25,3 +26,5 @@ m4/lt~obsolete.m4
 missing
 src/Makefile.in
 stamp-h1
+
+docs/_build

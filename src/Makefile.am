@@ -7,6 +7,6 @@ libbutton_la_SOURCES = buttmis.f button.f buttqbr.f buttqcf.f buttqch.f\
  buttsyb.f buttsytext.f ifbutton.f rpgband.f rpgbegin.f rpgbegok.f \
  rpgenv.f rpgeras.f rpgerasb.f rpgerasw.f button.inc
 
-noinst_PROGRAMS = sample
-sample_SOURCES = sample.f
-sample_LDADD = libbutton.la
+noinst_PROGRAMS = samplebutton
+samplebutton_SOURCES = samplebutton.f
+samplebutton_LDADD = libbutton.la
