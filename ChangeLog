@@ -1,0 +1,4 @@
+2006-08-08 spr
+	
+	* configure.ac: Uses macro STTL_LIB_PGPLOT
+	* m4/: Added new dir with pgplot.m4
