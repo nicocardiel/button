@@ -51,3 +51,9 @@ To install **button** you need to perform the following steps:
 ::
 
    $ sudo make install
+
+C version
+---------
+
+A reduced C version of **button** if also available
+:download:`here<aux/cbutton.tar.gz>` (use it at your own risk!).
