@@ -24,3 +24,4 @@ Documentation outline
    installation
    library_description
    classified_list
+   alphabetically_sorted_list
