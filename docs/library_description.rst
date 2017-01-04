@@ -1,8 +1,8 @@
 Library description
 ===================
 
-*button* depends on PGPLOT
---------------------------
+**button** depends on PGPLOT
+----------------------------
 
 The **button** library has been built based on the graphic subroutine package
 PGPLOT. In fact, the PGPLOT subroutine
