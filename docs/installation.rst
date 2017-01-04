@@ -38,3 +38,16 @@ To install **button** you need to perform the following steps:
 ::
 
    $ make
+
+4.- Check that the sample program works:
+
+::
+
+   $ src/samplebutton
+   ...
+
+5.- (Optional) Install the library in the system:
+
+::
+
+   $ sudo make install

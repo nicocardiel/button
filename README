@@ -1,2 +1,3 @@
-Button is a Fortran 77 libray created by Nicolás Cardiel <cardiel@ucm.es> 
-with the aim of using graphical buttons with PGPLOT.
+Button is a Fortran 77 libray created and developed by Nicolás Cardiel
+<cardiel@ucm.es> as part of his PhD work (carried out under the supervision of
+J. Gorgas) with the aim of using graphical buttons with PGPLOT.
