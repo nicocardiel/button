@@ -6,9 +6,13 @@
 Welcome to button's documentation!
 ==================================
 
-*button* is a Fortran 77 library created by Nicolás Cardiel with the aim of
+**button** is a Fortran 77 library created by Nicolás Cardiel with the aim of
 using graphical buttons with `PGPLOT
 <http://www.astro.caltech.edu/~tjp/pgplot/>`_.
+
+.. image:: images/sample.gif
+   :scale: 100%
+   :align: center
 
 Documentation outline
 ---------------------
