@@ -23,4 +23,4 @@ Documentation outline
    license_agreement
    installation
    library_description
-   available_routines
+   classified_list
