@@ -1,3 +1,12 @@
 Button is a Fortran 77 libray created and developed by Nicolás Cardiel
 <cardiel@ucm.es> as part of his PhD work (carried out under the supervision of
 J. Gorgas) with the aim of using graphical buttons with PGPLOT.
+
+This code is free software; you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+Maintainer: Nicolás Cardiel, cardiel@ucm.es
+Webpage (documentation): http://button.readthedocs.io/en/latest/
+Webpage (source): https://github.com/nicocardiel/button
