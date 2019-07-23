@@ -57,13 +57,17 @@ C if .TRUE. tick marks are drawn outside the viewport instead of inside
 C
 C if .TRUE. buttons appear in text mode
         LOGICAL MODOTEXT_BUTT
-C if .TRUE. buttons appear in text mode but they are also plotted
+C if .TRUE. buttons appear in graphic mode
         LOGICAL MODOTEXT_PLOTBUTT
         COMMON/BUTTON8/MODOTEXT_BUTT,MODOTEXT_PLOTBUTT
+C if .TRUE. button numbers appear overplotted 
+C (this variable is true when file .button_modoover do exist)
+        LOGICAL MODOOVER_BUTT
+        COMMON/BUTTON9/MODOOVER_BUTT
 C------------------------------------------------------------------------------
 C Miscellany
-        INTEGER TBEGBUTT,TLENBUTT
-        INTEGER READIBUTT
-        REAL READFBUTT
-        CHARACTER*255 READCBUTT
+        INTEGER TRUELEN,TRUEBEG
+        INTEGER READI
+        REAL READF
+        CHARACTER*255 READC
 C------------------------------------------------------------------------------

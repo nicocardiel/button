@@ -62,17 +62,20 @@ C local variables
         CHARACTER*255 TERMINAL,DEFDEV
         LOGICAL LOOP
 C------------------------------------------------------------------------------
+        INQUIRE(FILE='.button_modoover',EXIST=MODOOVER_BUTT)
         CALL GRGENV('DEV',DEFDEV,LDEV)
 C determinamos si los botones se muestran en modo texto
-        WRITE(*,100)'Are you using graphic buttons............(y/n) '
-        CBUT=READCBUTT('y','yn')
+        CBUT(1:1)=
+     +   READC('Are you using graphic buttons............(y/n)',
+     +   'y','yn')
         MODOTEXT_BUTT=(CBUT.EQ.'n')
         IF(MODOTEXT_BUTT)THEN
           WRITE(*,*)
           WRITE(*,100)'WARNING: remember to enlarge the terminal width '
           WRITE(*,101)'to hold all the text-buttons.'
-          WRITE(*,100)'Do you want to plot the buttons anyway...(y/n) '
-          CBUT=READCBUTT('y','yn')
+          CBUT(1:1)=
+     +     READC('Do you want to plot the buttons anyway...(y/n)',
+     +     'y','yn')
           MODOTEXT_PLOTBUTT=(CBUT.EQ.'y')
           WRITE(*,'(A)')'[1;1f[J'
         ELSE
@@ -90,34 +93,32 @@ C open graphic output for plots
           IF(LDEV.EQ.0)THEN
             CALL PGLDEV
             IF(NTERM.GT.0)THEN
-              WRITE(*,100)' '
-              TERMINAL=READCBUTT('NONE','@')
+              TERMINAL=READC(' ','NONE','@')
             ELSE
-              TERMINAL=READCBUTT('@','@')
+              TERMINAL=READC(' ','@','@')
             END IF
           ELSE
-            WRITE(*,100)' (? to see list) '
             IF(NTERM.GT.0)THEN
-              TERMINAL=READCBUTT('NONE','@')
+              TERMINAL=READC(' (? to see list)','NONE','@')
             ELSE
-              TERMINAL=READCBUTT(DEFDEV(1:LDEV),'@')
+              TERMINAL=READC(' (? to see list)',DEFDEV(1:LDEV),'@')
             END IF
             IF(TERMINAL.EQ.'?')THEN
               CALL PGLDEV
               WRITE(*,115)'Graphic device #',NTERM+1,' '
-              TERMINAL=READCBUTT(DEFDEV(1:LDEV),'@')
+              TERMINAL=READC(' ',DEFDEV(1:LDEV),'@')
             END IF
           END IF
           IF(TERMINAL.NE.'NONE')THEN
-            LTER=TLENBUTT(TERMINAL)
+            LTER=TRUELEN(TERMINAL)
             ID0=PGOPEN(TERMINAL(1:LTER))
             IF(ID0.LE.0)THEN
               WRITE(*,101)'ERROR: unable to open graphic device. '//
      +         'Please, try again.'
               ID0=PGOPEN('?')
               IF(ID0.LE.0)THEN
-                WRITE(*,101)'FATAL ERROR: unable to open graphic '//
-     +           'device.'
+                WRITE(*,101)'FATAL ERROR: unable to open '//
+     +           'graphic device.'
                 STOP
               END IF
             END IF

@@ -109,8 +109,8 @@ C
         IF(YOPTS.EQ.'*') YOPTS=XOPTS
 C invert tick marks if necessary
         IF(ITICKS_BUTT)THEN
-          XOPTS=XOPTS(1:TLENBUTT(XOPTS))//'I'
-          YOPTS=YOPTS(1:TLENBUTT(YOPTS))//'I'
+          XOPTS=XOPTS(1:TRUELEN(XOPTS))//'I'
+          YOPTS=YOPTS(1:TRUELEN(YOPTS))//'I'
         END IF
 C draw box
         CALL PGBOX(XOPTS,0.0,0,YOPTS,0.0,0)

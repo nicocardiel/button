@@ -52,8 +52,7 @@ C Variables locales
 C------------------------------------------------------------------------------
 C------------------------------------------------------------------------------
         IF(MODOTEXT_BUTT)THEN
-          WRITE(*,100)'Button number '
-          NB=READIBUTT('0')
+          NB=READI('Button number','0')
           IF(NB.EQ.0) RETURN
           IF((NB.LT.1).OR.(NB.GT.MAX_XBUTT*MAX_YBUTT))THEN
             WRITE(*,101)'ERROR: number out of range.'
@@ -102,6 +101,5 @@ C
 C
         NB=0                                  !no se ha encontrado ningun boton
 C------------------------------------------------------------------------------
-100     FORMAT(A,$)
 101     FORMAT(A)
         END

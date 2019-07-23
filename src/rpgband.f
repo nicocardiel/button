@@ -49,25 +49,23 @@ C Variables locales
 C------------------------------------------------------------------------------
 C------------------------------------------------------------------------------
         IF(MODOTEXT_BUTT)THEN
-          WRITE(*,100)'Are you pressing a button (y/n/#) '
-          CBUTTON=READCBUTT('y','yn#')
+          CBUTTON(1:1)=READC('Are you pressing a button (y/n/#)','y',
+     +     'yn#')
           IF(CBUTTON.EQ.'y')THEN
             XC=0.
             YC=0.
             CH='A'         !caracter devuelto por el boton izquierdo del mouse
           ELSEIF(CBUTTON.EQ.'n')THEN
-            WRITE(*,100)'XC'
-            XC=READFBUTT('@')
-            WRITE(*,100)'YC'
-            YC=READFBUTT('@')
-            WRITE(*,100)'CH '
-            CH=READCBUTT('A','@')
+            XC=READF('XC','@')
+            YC=READF('YC','@')
+            CH(1:1)=READC('CH','A','@')
           ELSEIF(CBUTTON.EQ.'#')THEN
             XC=0.
             YC=0.
             CH='A'         !caracter devuelto por el boton izquierdo del mouse
-            WRITE(*,100)'Do you want to insert a CALL PGPAGE (y/n) '
-            CPGPAGE=READCBUTT('y','yn')
+            CPGPAGE(1:1)=
+     +       READC('Do you want to insert a CALL PGPAGE (y/n)',
+     +       'y','yn')
             IF(CPGPAGE.EQ.'y')CALL PGPAGE
           END IF
         ELSE
@@ -81,6 +79,5 @@ C------------------------------------------------------------------------------
           END IF
         END IF
 C------------------------------------------------------------------------------
-100     FORMAT(A,$)
 101     FORMAT(A)
         END
