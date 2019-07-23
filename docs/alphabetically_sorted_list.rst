@@ -1,24 +1,5 @@
-Alphabetically sorted list
-==========================
-
-``buttmis``
------------
-
-::
-
-   BUTTMIS
-   This file contains subroutines and functions which are similar to other
-   already defined for REDUCEME, namely TRUELEN, TRUEBEG, READI, READC, READF,
-   LRUNX and RMBLANK. We duplicate them in order to create a library which must
-   work independtly of REDUCEME.
-   
-   INTEGER FUNCTION TLENBUTT(CADENA)
-   INTEGER FUNCTION TBEGBUTT(CADENA)
-   INTEGER FUNCTION READIBUTT(CDEF)
-   CHARACTER*(*) FUNCTION READCBUTT(CDEF,CVAL)
-   REAL FUNCTION READFBUTT(CDEF)
-   SUBROUTINE LRUNXBUTT(LRUN,LMANUAL)
-   SUBROUTINE RMBLANKBUTT(C1,C2,L)
+Alphabetically sorted list (button specific subroutines)
+========================================================
 
 ``button``
 ----------
@@ -454,8 +435,8 @@ Alphabetically sorted list
 
 ::
    
-   SUBROUTINE RPGERASW(X1,X2,Y1,Y2)
-   Input: X1,X2,Y1,Y2
+   SUBROUTINE RPGERASW(X1,X2,Y1,Y2,NCOLOR)
+   Input: X1,X2,Y1,Y2,NCOLOR
    
    Clear any rectangle defined by (X1,Y1) lower left corner
                                   (X2,Y2) upper right corner
@@ -468,6 +449,7 @@ Alphabetically sorted list
               cleared,in normalized device coordinates
    REAL Y2 -> y-coordinate of the top edge of the rectangle to be
               cleared,in normalized device coordinates
+   INTEGER NCOLOR -> background color
    
    NOTE: this subroutine preserves the original viewport and window coordinate
          systems

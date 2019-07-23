@@ -31,7 +31,7 @@ To install **button** you need to perform the following steps:
    $ ./configure
 
 .. note:: Mac users can easily indicate a different Fortran compiler using
-      ``./configure F77=gfortran-mp-5``.
+      ``./configure F77=gfortran-mp-8``.
 
 3.- Compile the code:
 

@@ -14,7 +14,7 @@ Comment
 C
 C SUBROUTINE RPGERASW(X1,X2,Y1,Y2,NCOLOR)
 C
-C Input: X1,X2,Y1,Y2
+C Input: X1,X2,Y1,Y2,NCOLOR
 C
 C Clear any rectangle defined by (X1,Y1) lower left corner
 C                                (X2,Y2) upper right corner
