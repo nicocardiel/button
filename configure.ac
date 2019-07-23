@@ -9,8 +9,8 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs
 AC_PROG_F77
-AC_PROG_RANLIB
 AM_PROG_AR
+LT_INIT
 
 # Safety check
 AC_CONFIG_SRCDIR([src/samplebutton.f])

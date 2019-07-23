@@ -23,7 +23,7 @@ src/Makefile.in
 src/*.o
 src/*.lo
 src/.libs
-src/libbutton.a
+src/libbutton*
 src/samplebutton
 src/samplebutton.dSYM
 stamp-h1
