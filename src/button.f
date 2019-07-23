@@ -58,7 +58,7 @@ C Variables locales
         REAL OFFY
         REAL X1W,X2W,Y1W,Y2W
         REAL X1V,X2V,Y1V,Y2V
-        CHARACTER*80 CWHERE
+        CHARACTER*80 CWHERE,CDUMMY
 C------------------------------------------------------------------------------
 C------------------------------------------------------------------------------
         LMODE=MODE
@@ -137,6 +137,12 @@ C------------------------------------------------------------------------------
             CALL PGSCI(15)
           END IF
           CALL PGPTEXT((X1+X2)/2.,Y1+OFFY,0.,0.5,TEXT)
+          IF(MODOOVER_BUTT)THEN
+            WRITE(CDUMMY,*) N
+            CALL RMBLANK(CDUMMY,CDUMMY,L)
+            CALL PGSCI(1)
+            CALL PGPTEXT((X1+X2)/2.,Y1+OFFY,0.,0.5,CDUMMY(1:L))
+          END IF
         ELSE
           CALL PGSCI(12)
           CALL PGRECT(X1+DDX,X2-DDX,Y1+DDY,Y2-DDY)
@@ -182,6 +188,12 @@ C------------------------------------------------------------------------------
             CALL PGSCI(0)
           END IF
           CALL PGPTEXT((X1+X2)/2.,Y1+OFFY,0.,0.5,TEXT)
+          IF(MODOOVER_BUTT)THEN
+            WRITE(CDUMMY,*) N
+            CALL RMBLANK(CDUMMY,CDUMMY,L)
+            CALL PGSCI(1)
+            CALL PGPTEXT((X1+X2)/2.,Y1+OFFY,0.,0.5,CDUMMY(1:L))
+          END IF
           CALL PGSCI(0)
           CALL PGMOVE(X1,Y1)
           CALL PGDRAW(X2,Y1)
@@ -194,35 +206,35 @@ C------------------------------------------------------------------------------
         CALL PGSCF(PGSCF_OLD)
         CALL PGSCH(PGSCH_OLD)
         IF(LMODE.EQ.3) CALL PGSCI(1)
+        IF(LMODE.EQ.2) CALL PGSCI(1)
 C
 80      CALL PGVPORT(X1V,X2V,Y1V,Y2V)
         CALL PGWINDOW(X1W,X2W,Y1W,Y2W)
+        RETURN
 C------------------------------------------------------------------------------
 C Botones en modo texto
-90      IF(MODOTEXT_BUTT)THEN
-          WRITE(CWHERE,'(A,I2,A1,I3,A1)')'[',NLIN,';',(NCOL-1)*20,'f'
-          CALL RMBLANK(CWHERE,CWHERE,L)
-          WRITE(*,'(A)')CWHERE(1:L)//'                    '
-          IF(LMODE.EQ.-1)THEN
-          ELSEIF(LMODE.EQ.3)THEN
-            WRITE(*,'(A,I3,A,$)')CWHERE(1:L),N,'-'
-            WRITE(*,101)TEXT(1:TRUELEN(TEXT))
-          ELSEIF(LMODE.EQ.5)THEN
-            WRITE(*,100)'[5m'
-            WRITE(*,'(A,I3,A,$)')CWHERE(1:L),N,'-'
-            WRITE(*,100)TEXT(1:TRUELEN(TEXT))
-            WRITE(*,101)'[0m'
-          ELSE
-            WRITE(*,100)'[5m'
-            WRITE(*,'(A,I3,A,$)')'[5m'//CWHERE(1:L),N,'[0m'
-            WRITE(*,100)'-'
-            WRITE(*,101)TEXT(1:TRUELEN(TEXT))
-          END IF
-          WRITE(CWHERE,'(A,I2,A3)')'[',MAX_YBUTT+1,';1f'
-          CALL RMBLANK(CWHERE,CWHERE,L)
-          WRITE(*,'(A)')CWHERE(1:L)//'[J'
-          WRITE(*,'(A)')CWHERE(1:L)
+90      WRITE(CWHERE,'(A,I2,A1,I3,A1)')'[',NLIN,';',(NCOL-1)*20,'f'
+        CALL RMBLANK(CWHERE,CWHERE,L)
+        WRITE(*,'(A)')CWHERE(1:L)//'                    '
+        IF(LMODE.EQ.-1)THEN
+        ELSEIF(LMODE.EQ.3)THEN
+          WRITE(*,'(A,I3,A,$)')CWHERE(1:L),N,'-'
+          WRITE(*,101)TEXT(1:TRUELEN(TEXT))
+        ELSEIF(LMODE.EQ.5)THEN
+          WRITE(*,100)'[5m'
+          WRITE(*,'(A,I3,A,$)')CWHERE(1:L),N,'-'
+          WRITE(*,100)TEXT(1:TRUELEN(TEXT))
+          WRITE(*,101)'[0m'
+        ELSE
+          WRITE(*,100)'[5m'
+          WRITE(*,'(A,I3,A,$)')'[5m'//CWHERE(1:L),N,'[0m'
+          WRITE(*,100)'-'
+          WRITE(*,101)TEXT(1:TRUELEN(TEXT))
         END IF
+        WRITE(CWHERE,'(A,I2,A3)')'[',MAX_YBUTT+1,';1f'
+        CALL RMBLANK(CWHERE,CWHERE,L)
+        WRITE(*,'(A)')CWHERE(1:L)//'[J'
+        WRITE(*,'(A)')CWHERE(1:L)
 C------------------------------------------------------------------------------
 100     FORMAT(A,$)
 101     FORMAT(A)

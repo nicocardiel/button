@@ -1,5 +1,5 @@
 C------------------------------------------------------------------------------
-C Version 18-September-1997                                     File: rpgeras.f
+C Version 10-July-2000                                          File: rpgeras.f
 C------------------------------------------------------------------------------
 C Copyright N. Cardiel & J. Gorgas, Departamento de Astrofisica
 C Universidad Complutense de Madrid, 28040-Madrid, Spain
@@ -12,7 +12,7 @@ C later version. See the file gnu-public-license.txt for details.
 C------------------------------------------------------------------------------
 Comment
 C
-C SUBROUTINE RPGERASW(X1,X2,Y1,Y2)
+C SUBROUTINE RPGERASW(X1,X2,Y1,Y2,NCOLOR)
 C
 C Input: X1,X2,Y1,Y2
 C
@@ -27,15 +27,17 @@ C REAL Y1 -> y-coordinate of the bottom edge of the rectangle to be
 C            cleared,in normalized device coordinates
 C REAL Y2 -> y-coordinate of the top edge of the rectangle to be 
 C            cleared,in normalized device coordinates
+C INTEGER NCOLOR -> background color
 C
 C NOTE: this subroutine preserves the original viewport and window coordinate
 C       systems
 C
 Comment
 C------------------------------------------------------------------------------
-        SUBROUTINE RPGERASW(X1,X2,Y1,Y2)
+        SUBROUTINE RPGERASW(X1,X2,Y1,Y2,NCOLOR)
         IMPLICIT NONE
         REAL X1,X2,Y1,Y2
+        INTEGER NCOLOR
 C
         INTEGER CI,FS
         REAL XW1,XW2,YW1,YW2
@@ -50,7 +52,7 @@ C
         CALL PGWINDOW(0.0,1.0,0.0,1.0)
         CALL PGQCI(CI)
         CALL PGQFS(FS)
-        CALL PGSCI(0)
+        CALL PGSCI(NCOLOR)
         CALL PGSFS(1)
         CALL PGRECT(0.0,1.0,0.0,1.0)
         CALL PGSCI(CI)

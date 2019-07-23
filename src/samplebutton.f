@@ -98,7 +98,7 @@ C......
          DO ITERM=NTERM,1,-1
            CALL PGSLCT(IDN(ITERM))
            CALL BUTTQBR(XV3,XV4,YV3,YV4)
-           CALL RPGERASW(0.,1.,0.,YV3)
+           CALL RPGERASW(0.,1.,0.,YV3,0)
          END DO
          GOTO 5
 C......

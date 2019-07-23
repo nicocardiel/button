@@ -12,8 +12,9 @@ C later version. See the file gnu-public-license.txt for details.
 C------------------------------------------------------------------------------
 Comment
 C
-C SUBROUTINE RPGBEGOK(TTERM)
-C
+C SUBROUTINE RPGBEGOK(TTERM,IMODE)
+C 
+C Input: TTERM,IMODE
 C Output (COMMON): all global variables in button.inc
 C
 C Open the graphic device TTERM and assign the default values to the global
@@ -33,18 +34,24 @@ C        Y3VPORT=0.80
 C        Y4VPORT=0.95
 C
 C CHARACTER*(*) TTERM -> graphic device to be opened
+C INTEGER       IMODE -> define the mode to operate with the buttons:
+C                        IMODE=0: graphics button
+C                        IMODE=1: text buttons (but plot graphic buttons)
+C                        IMODE=2: text buttons (without graphic buttons)
 C
 Comment
 C------------------------------------------------------------------------------
-        SUBROUTINE RPGBEGOK(TTERM)
+        SUBROUTINE RPGBEGOK(TTERM,IMODE)
         IMPLICIT NONE
 C
         INCLUDE 'button.inc'
 C
         CHARACTER*(*) TTERM
+        INTEGER IMODE
 C
         INTEGER I
 C------------------------------------------------------------------------------
+        INQUIRE(FILE='.button_modoover',EXIST=MODOOVER_BUTT)
 C abrimos la salida grafica
         CALL PGBEGIN(0,TTERM,1,1)
         CALL PGASK(.FALSE.)
@@ -80,5 +87,29 @@ C  15: casi gris intermedio
         CALL PGSCR(13,0.7,0.7,0.7)
         CALL PGSCR(14,0.3,0.3,0.3)
         CALL PGSCR(15,0.6,0.6,0.6)
+C colores definidos para background en llamadas a RPGERASW
+        CALL PGSCR( 8,0.40,0.40,0.00)
+        CALL PGSCR( 9,0.10,0.10,0.40)
+        CALL PGSCR(10,0.40,0.10,0.10)
+        CALL PGSCR(11,0.10,0.40,0.40)
+C definimos el modo de trabajar con los botones
+        IF(IMODE.EQ.0)THEN
+          MODOTEXT_BUTT=.FALSE.
+          MODOTEXT_PLOTBUTT=.FALSE.
+        ELSEIF(IMODE.EQ.1)THEN
+          MODOTEXT_BUTT=.TRUE.
+          MODOTEXT_PLOTBUTT=.TRUE.
+        ELSEIF(IMODE.EQ.2)THEN
+          MODOTEXT_BUTT=.TRUE.
+          MODOTEXT_PLOTBUTT=.FALSE.
+        ELSE
+          WRITE(*,101)'ERROR: invalid IMODE in subroutine RPGBEGOK'
+          WRITE(*,100)'Press <CR> to continue...'
+          READ(*,*)
+          MODOTEXT_BUTT=.FALSE.
+          MODOTEXT_PLOTBUTT=.FALSE.
+        END IF
 C------------------------------------------------------------------------------
+100     FORMAT(A,$)
+101     FORMAT(A)
         END
