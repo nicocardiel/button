@@ -5,16 +5,14 @@ Requirements
 ------------
 
 Before you install BUTTON, make sure that PGPLOT (version 5.1.0 or above) is
-already installed in your system. If this is not the case, you can download
-PGPLOT from `here <http://www.astro.caltech.edu/~tjp/pgplot/>`_.
+already installed in your system.  Some details about how I do typically
+install PGPLOT under ``Linux`` and ``Mac OS X`` are given `here
+<https://guaix.fis.ucm.es/~ncl/howto/howto-pgplot>`_.
 
-Some details about how I do typically install PGPLOT under ``Linux`` and ``Mac
-OS X`` are given `here <https://guaix.fis.ucm.es/~ncl/howto/howto-pgplot>`_.
-
-**button** Installation
+**Button** Installation
 -----------------------
 
-To install **button** you need to perform the following steps:
+To install **Button** you need to perform the following steps:
 
 
 1.- Download the latest distribution from github:
@@ -55,5 +53,5 @@ To install **button** you need to perform the following steps:
 C version
 ---------
 
-A reduced C version of **button** if also available
+A reduced C version of **Button** if also available
 :download:`here<aux/cbutton.tar.gz>` (use it at your own risk!).

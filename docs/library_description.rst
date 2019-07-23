@@ -1,39 +1,39 @@
 Library description
 ===================
 
-**button** depends on PGPLOT
+**Button** depends on PGPLOT
 ----------------------------
 
-The **button** library has been built based on the graphic subroutine package
+The **Button** library has been built based on the graphic subroutine package
 PGPLOT. In fact, the PGPLOT subroutine
 
 ::
 
    PGBAND(MODE,POSN,XREF,YREF,XC,YC,CH) 
 
-is the nucleus of the **button** system. This subroutine, which governs the
+is the nucleus of the **Button** system. This subroutine, which governs the
 utilization of a mouse device, returns the cursor position ``(XC,YC)`` in world
 coordinates, and the character ``(CH)`` typed by the user on the keyboard or
 mouse button clicked (a three button mouse returns ``CH='A'`` --left button--,
 ``CH='D'`` --middle button--, ``CH='X'`` --right button--).
 
-**button** routines are completely compatible with the PGPLOT routines,
-exception made for ``PGBEGIN``, which must be replaced by its **button**
+**Button** routines are completely compatible with the PGPLOT routines,
+exception made for ``PGBEGIN``, which must be replaced by its **Button**
 version ``RPGBEGIN``. Other PGPLOT routines, like ``PGENV``, ``PGBAND``, and
 ``PGERAS`` are not recommended, and their counterparts ``RPGENV``, ``RPGBAND``
 and ``RPGERAS`` (``RPGERASB`` and ``RPGERASW``) should be employed instead. The
-convention employed to name these **button** routines is similar to that used
+convention employed to name these **Button** routines is similar to that used
 in PGPLOT, although an extra 'R' character has been added at the beginning of
 the each routine name to facilitate the distinction with the PGPLOT routines.
 
-Another set of additional **button** routines (``IFBUTTON``, ``BUTTON``,
+Another set of additional **Button** routines (``IFBUTTON``, ``BUTTON``,
 ``BUTTQBR``, ..., ``BUTTSYTEXT``) allow button manipulation, plotting the
 buttons in different modes and detecting their selection.
 
 Plotting settings
 -----------------
 
-The appearance of buttons and plots using **button** depend on the values of a
+The appearance of buttons and plots using **Button** depend on the values of a
 set of environment variables (all of them declared in the file ``button.inc``).
 These variables govern the size and location of buttons and plots, and can be
 changed at running time in a straightforward way by performing calls to
@@ -79,15 +79,24 @@ current values.
    \mbox{BUTTQBR} & \mbox{BUTTSBR} \\
    \end{array}
 
-Using **button**
+Using **Button**
 ----------------
 
 With these default values, the aspect of the plot and button regions is that
 shown in the following diagram:
 
-.. image:: images/plotreg.gif
-   :scale: 100%
-   :align: center
+.. only:: html
+
+   .. image:: images/plotreg.gif
+      :scale: 100%
+      :align: center
+
+.. only:: latex
+
+   .. image:: images/plotreg.png
+      :scale: 100%
+      :align: center
+
 
 Any call to ``RPGENV`` will produce a graph in the plot region. The button area
 is divided into ``MAX_XBUTT`` columns and ``MAX_YBUTT`` rows of buttons, which
@@ -100,11 +109,11 @@ initial call to the subroutine ``RPGBEGIN``, which determines the number of
 simultaneous output devices to be employed, and sets the default values of the
 environment variables. After this inicial call, all the PGPLOT routines
 (exception made for ``PGBEGIN``) can be employed, in addition to those of
-**button**.
+**Button**.
 
 Each button is identified with a number, corresponding to their position on the
 grid of ``MAX_XBUTT x MAX_XBUTT`` possible buttons. Calls to the subroutine
-**button** will display/erase buttons in different modes. The detection of a
+**Button** will display/erase buttons in different modes. The detection of a
 selected button by the program user is performed with a call to a couple of
 subroutines:
 
@@ -127,7 +136,7 @@ A sample program
 ----------------
 
 The sample program ``samplebutton.f``, included in the distribution file, shows
-some of the capabilities of the **button** library. Note that this program also
+some of the capabilities of the **Button** library. Note that this program also
 incorporates an algorithm to handle, simultaneously, different graphic output
 devices. However, it is important to note that, if more than one single graphic
 device is going to be employed, buttons (in this sample program) will only be
@@ -150,9 +159,18 @@ Graphic buttons
            .
    Press [CR] to EXIT
 
-.. image:: images/sample_bw.gif
-   :scale: 100%
-   :align: center
+.. only:: html
+
+   .. image:: images/sample_bw.gif
+      :scale: 100%
+      :align: center
+
+.. only:: latex
+
+   .. image:: images/sample_bw.png
+      :scale: 100%
+      :align: center
+
 
 Text buttons
 ............
