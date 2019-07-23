@@ -26,16 +26,16 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTSEX(NBUT,LEXIST)
         IMPLICIT NONE
-	INTEGER NBUT
-	LOGICAL LEXIST
+        INTEGER NBUT
+        LOGICAL LEXIST
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	IF((NBUT.LT.1).OR.(NBUT.GT.MAX_NBUTT))THEN
-	  WRITE(*,101)'ERROR: button number out of limits in '//
+        IF((NBUT.LT.1).OR.(NBUT.GT.MAX_NBUTT))THEN
+          WRITE(*,101)'ERROR: button number out of limits in '//
      +     'subroutine BUTTSEX.'
-	  LEXIST=.FALSE.
-	  RETURN
-	END IF
-	EXIST_BUTT(NBUT)=LEXIST
-101	FORMAT(A)
+          LEXIST=.FALSE.
+          RETURN
+        END IF
+        EXIST_BUTT(NBUT)=LEXIST
+101     FORMAT(A)
         END

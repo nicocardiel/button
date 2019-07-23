@@ -24,8 +24,8 @@ Comment
 C------------------------------------------------------------------------------
         SUBROUTINE BUTTQXB(NB)
         IMPLICIT NONE
-	INTEGER NB
+        INTEGER NB
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	NB=MAX_XBUTT
+        NB=MAX_XBUTT
         END

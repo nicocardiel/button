@@ -26,8 +26,8 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTSCH(SIZE)
         IMPLICIT NONE
-	REAL SIZE
+        REAL SIZE
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	PGSCH_BUTT=SIZE
+        PGSCH_BUTT=SIZE
         END

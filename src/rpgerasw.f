@@ -35,30 +35,30 @@ Comment
 C------------------------------------------------------------------------------
         SUBROUTINE RPGERASW(X1,X2,Y1,Y2)
         IMPLICIT NONE
-	REAL X1,X2,Y1,Y2
+        REAL X1,X2,Y1,Y2
 C
-	INTEGER CI,FS
-	REAL XW1,XW2,YW1,YW2
-	REAL XV1,XV2,YV1,YV2
+        INTEGER CI,FS
+        REAL XW1,XW2,YW1,YW2
+        REAL XV1,XV2,YV1,YV2
 C------------------------------------------------------------------------------
-	CALL PGBBUF
+        CALL PGBBUF
 C
-	CALL PGQWIN(XW1,XW2,YW1,YW2)
-	CALL PGQVP(0,XV1,XV2,YV1,YV2)
+        CALL PGQWIN(XW1,XW2,YW1,YW2)
+        CALL PGQVP(0,XV1,XV2,YV1,YV2)
 C
         CALL PGVPORT(X1,X2,Y1,Y2)
-	CALL PGWINDOW(0.0,1.0,0.0,1.0)
-	CALL PGQCI(CI)
-	CALL PGQFS(FS)
-	CALL PGSCI(0)
-	CALL PGSFS(1)
-	CALL PGRECT(0.0,1.0,0.0,1.0)
-	CALL PGSCI(CI)
-	CALL PGSFS(FS)
+        CALL PGWINDOW(0.0,1.0,0.0,1.0)
+        CALL PGQCI(CI)
+        CALL PGQFS(FS)
+        CALL PGSCI(0)
+        CALL PGSFS(1)
+        CALL PGRECT(0.0,1.0,0.0,1.0)
+        CALL PGSCI(CI)
+        CALL PGSFS(FS)
 C
-	CALL PGVPORT(XV1,XV2,YV1,YV2)
-	CALL PGWINDOW(XW1,XW2,YW1,YW2)
+        CALL PGVPORT(XV1,XV2,YV1,YV2)
+        CALL PGWINDOW(XW1,XW2,YW1,YW2)
 C
-	CALL PGEBUF
+        CALL PGEBUF
 C
         END

@@ -43,7 +43,7 @@ C Plot box
          IF(ITERM.EQ.1)THEN
            CALL RPGENV(0.,1.,-1.1,1.1,0,0)
          ELSE
-	   CALL PGENV(0.,1.,-1.1,1.1,0,0)
+           CALL PGENV(0.,1.,-1.1,1.1,0,0)
          END IF
          CALL PGLABEL('X axis','Y axis','Plot label')
        END DO
@@ -55,7 +55,7 @@ C------------------------------------------------------------------------------
 C......
        IF(NB.EQ.0)THEN
          WRITE(*,100)'Cursor at:'
-	 WRITE(*,*)XC,YC
+         WRITE(*,*)XC,YC
 C......
        ELSEIF(NB.EQ.6)THEN
          CALL BUTTON(6,'EXIT',5)
@@ -96,16 +96,16 @@ C......
        ELSEIF(NB.EQ.3)THEN                                          !clear plot
          CALL BUTTON(3,'clear',5)
          DO ITERM=NTERM,1,-1
-	   CALL PGSLCT(IDN(ITERM))
-	   CALL BUTTQBR(XV3,XV4,YV3,YV4)
+           CALL PGSLCT(IDN(ITERM))
+           CALL BUTTQBR(XV3,XV4,YV3,YV4)
            CALL RPGERASW(0.,1.,0.,YV3)
          END DO
          GOTO 5
 C......
        ELSEIF(NB.EQ.4)THEN                                        !change color
          CALL BUTTON(4,'color',5)
-	 WRITE(*,100)'Current PGPLOT color is number: '
-	 WRITE(*,*)NCOLOR
+         WRITE(*,100)'Current PGPLOT color is number: '
+         WRITE(*,*)NCOLOR
          WRITE(*,100)'Enter new PGPLOT color number: '
          READ(*,*) NCOLOR
          CALL BUTTON(4,'color',0)

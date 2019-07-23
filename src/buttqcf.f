@@ -25,8 +25,8 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTQCF(FONT)
         IMPLICIT NONE
-	INTEGER FONT
+        INTEGER FONT
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	FONT=PGSCF_BUTT
+        FONT=PGSCF_BUTT
         END

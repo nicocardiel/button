@@ -31,11 +31,11 @@ Comment
 C------------------------------------------------------------------------------
         SUBROUTINE BUTTQPR(X1,X2,Y1,Y2)
         IMPLICIT NONE
-	REAL X1,X2,Y1,Y2
+        REAL X1,X2,Y1,Y2
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	X1=X1VPORT
-	X2=X2VPORT
-	Y1=Y1VPORT
-	Y2=Y2VPORT
+        X1=X1VPORT
+        X2=X2VPORT
+        Y1=Y1VPORT
+        Y2=Y2VPORT
         END

@@ -25,14 +25,14 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTSCF(FONT)
         IMPLICIT NONE
-	INTEGER FONT
+        INTEGER FONT
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	IF((FONT.LT.1).OR.(FONT.GT.4))THEN
-	  WRITE(*,101)'ERROR: invalid font type in subroutine BUTTSCF.'
-	  WRITE(*,101)'=> previous font type unchanged'
-	  RETURN
-	END IF
-	PGSCF_BUTT=FONT
-101	FORMAT(A)
+        IF((FONT.LT.1).OR.(FONT.GT.4))THEN
+          WRITE(*,101)'ERROR: invalid font type in subroutine BUTTSCF.'
+          WRITE(*,101)'=> previous font type unchanged'
+          RETURN
+        END IF
+        PGSCF_BUTT=FONT
+101     FORMAT(A)
         END

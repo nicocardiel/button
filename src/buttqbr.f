@@ -32,11 +32,11 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTQBR(X1,X2,Y1,Y2)
         IMPLICIT NONE
-	REAL X1,X2,Y1,Y2
+        REAL X1,X2,Y1,Y2
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	X1=X3VPORT
-	X2=X4VPORT
-	Y1=Y3VPORT
-	Y2=Y4VPORT
+        X1=X3VPORT
+        X2=X4VPORT
+        Y1=Y3VPORT
+        Y2=Y4VPORT
         END

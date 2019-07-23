@@ -26,18 +26,18 @@ C------------------------------------------------------------------------------
 C Borra la region de plots
         INCLUDE 'button.inc'
 C
-	INTEGER CI,FS
+        INTEGER CI,FS
 C------------------------------------------------------------------------------
-	CALL PGBBUF
+        CALL PGBBUF
         CALL PGVPORT(X1VPORT,X2VPORT,Y1VPORT,Y2VPORT)
-	CALL PGWINDOW(0.0,1.0,0.0,1.0)
-	CALL PGQCI(CI)
-	CALL PGQFS(FS)
-	CALL PGSCI(0)
-	CALL PGSFS(1)
-	CALL PGRECT(0.0,1.0,0.0,1.0)
-	CALL PGSCI(CI)
-	CALL PGSFS(FS)
-	CALL PGEBUF
+        CALL PGWINDOW(0.0,1.0,0.0,1.0)
+        CALL PGQCI(CI)
+        CALL PGQFS(FS)
+        CALL PGSCI(0)
+        CALL PGSFS(1)
+        CALL PGRECT(0.0,1.0,0.0,1.0)
+        CALL PGSCI(CI)
+        CALL PGSFS(FS)
+        CALL PGEBUF
 C
         END

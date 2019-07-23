@@ -24,8 +24,8 @@ Comment
 C------------------------------------------------------------------------------
         SUBROUTINE BUTTQYB(NB)
         IMPLICIT NONE
-	INTEGER NB
+        INTEGER NB
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	NB=MAX_YBUTT
+        NB=MAX_YBUTT
         END

@@ -25,8 +25,8 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTSXB(NB)
         IMPLICIT NONE
-	INTEGER NB
+        INTEGER NB
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	MAX_XBUTT=NB
+        MAX_XBUTT=NB
         END

@@ -31,56 +31,56 @@ C CHARACTER*1 CH -> the character typed by the user
 C
 Comment
 C------------------------------------------------------------------------------
-	SUBROUTINE RPGBAND(MODE,POSN,XREF,YREF,XC,YC,CH)
-	IMPLICIT NONE
-	INTEGER MODE,POSN
-	REAL XREF,YREF,XC,YC
-	CHARACTER*1 CH
+        SUBROUTINE RPGBAND(MODE,POSN,XREF,YREF,XC,YC,CH)
+        IMPLICIT NONE
+        INTEGER MODE,POSN
+        REAL XREF,YREF,XC,YC
+        CHARACTER*1 CH
 C
 C Comando identico a PGCURSE de PGPLOT pero que en caso de utilizar botones en
 C modo texto permite la entrada de los parametros de la subrutina desde
 C teclado.
 C------------------------------------------------------------------------------
-	INCLUDE 'button.inc'
+        INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
 C Variables locales
-	INTEGER PGBAND,IDUM
-	CHARACTER*1 CBUTTON,CPGPAGE
+        INTEGER PGBAND,IDUM
+        CHARACTER*1 CBUTTON,CPGPAGE
 C------------------------------------------------------------------------------
 C------------------------------------------------------------------------------
-	IF(MODOTEXT_BUTT)THEN
-	  WRITE(*,100)'Are you pressing a button (y/n/#) '
-	  CBUTTON=READCBUTT('y','yn#')
-	  IF(CBUTTON.EQ.'y')THEN
-	    XC=0.
-	    YC=0.
-	    CH='A'         !caracter devuelto por el boton izquierdo del mouse
-	  ELSEIF(CBUTTON.EQ.'n')THEN
-	    WRITE(*,100)'XC'
-	    XC=READFBUTT('@')
-	    WRITE(*,100)'YC'
-	    YC=READFBUTT('@')
-	    WRITE(*,100)'CH '
-	    CH=READCBUTT('A','@')
-	  ELSEIF(CBUTTON.EQ.'#')THEN
-	    XC=0.
-	    YC=0.
-	    CH='A'         !caracter devuelto por el boton izquierdo del mouse
-	    WRITE(*,100)'Do you want to insert a CALL PGPAGE (y/n) '
-	    CPGPAGE=READCBUTT('y','yn')
-	    IF(CPGPAGE.EQ.'y')CALL PGPAGE
-	  END IF
-	ELSE
-	  IDUM=PGBAND(MODE,POSN,XREF,YREF,XC,YC,CH)
-	  IF(IDUM.EQ.0)THEN
-	    WRITE(*,101)'ERROR: in subroutine PGBAND.'
-	    WRITE(*,101)'=> returned XC=YC=0.0, CH="X"'
-	    XC=0.
-	    YC=0.
-	    CH='X'
-	  END IF
-	END IF
+        IF(MODOTEXT_BUTT)THEN
+          WRITE(*,100)'Are you pressing a button (y/n/#) '
+          CBUTTON=READCBUTT('y','yn#')
+          IF(CBUTTON.EQ.'y')THEN
+            XC=0.
+            YC=0.
+            CH='A'         !caracter devuelto por el boton izquierdo del mouse
+          ELSEIF(CBUTTON.EQ.'n')THEN
+            WRITE(*,100)'XC'
+            XC=READFBUTT('@')
+            WRITE(*,100)'YC'
+            YC=READFBUTT('@')
+            WRITE(*,100)'CH '
+            CH=READCBUTT('A','@')
+          ELSEIF(CBUTTON.EQ.'#')THEN
+            XC=0.
+            YC=0.
+            CH='A'         !caracter devuelto por el boton izquierdo del mouse
+            WRITE(*,100)'Do you want to insert a CALL PGPAGE (y/n) '
+            CPGPAGE=READCBUTT('y','yn')
+            IF(CPGPAGE.EQ.'y')CALL PGPAGE
+          END IF
+        ELSE
+          IDUM=PGBAND(MODE,POSN,XREF,YREF,XC,YC,CH)
+          IF(IDUM.EQ.0)THEN
+            WRITE(*,101)'ERROR: in subroutine PGBAND.'
+            WRITE(*,101)'=> returned XC=YC=0.0, CH="X"'
+            XC=0.
+            YC=0.
+            CH='X'
+          END IF
+        END IF
 C------------------------------------------------------------------------------
-100	FORMAT(A,$)
-101	FORMAT(A)
-	END
+100     FORMAT(A,$)
+101     FORMAT(A)
+        END

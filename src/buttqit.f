@@ -25,8 +25,8 @@ C------------------------------------------------------------------------------
 C
         SUBROUTINE BUTTQIT(LOUTSIDE)
         IMPLICIT NONE
-	LOGICAL LOUTSIDE
+        LOGICAL LOUTSIDE
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	LOUTSIDE=ITICKS_BUTT
+        LOUTSIDE=ITICKS_BUTT
         END

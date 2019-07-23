@@ -28,8 +28,8 @@ C Return the current character height in buttons
 C
         SUBROUTINE BUTTQCH(SIZE)
         IMPLICIT NONE
-	REAL SIZE
+        REAL SIZE
         INCLUDE 'button.inc'
 C------------------------------------------------------------------------------
-	SIZE=PGSCH_BUTT
+        SIZE=PGSCH_BUTT
         END
