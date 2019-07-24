@@ -1,5 +1,8 @@
 syntax:glob
 
+.DS_Store
+docs/.DS_Store
+src/.DS_Store
 .gitignore~
 Makefile
 Makefile.in
@@ -27,6 +30,8 @@ src/.libs
 src/libbutton*
 src/samplebutton
 src/samplebutton.dSYM
+src/logo
+src/logo.dSYM
 stamp-h1
 
 docs/_build
