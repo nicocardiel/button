@@ -9,6 +9,7 @@ AC_CONFIG_SRCDIR([config.h.in])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs
+AC_REVISION($Revision$)
 AC_PROG_F77
 AM_PROG_AR
 LT_INIT
