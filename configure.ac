@@ -10,12 +10,12 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs
 AC_REVISION($Revision$)
-AC_PROG_F77
+AC_PROG_FC
 AM_PROG_AR
 LT_INIT
 
 # Safety check
-AC_CONFIG_SRCDIR([src/samplebutton.f])
+AC_CONFIG_SRCDIR([src/samplebutton.f90])
 
 # Define directories to search for libraries
 AC_MSG_CHECKING([uname -s for detecting host operating system])

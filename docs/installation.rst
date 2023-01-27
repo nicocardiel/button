@@ -28,8 +28,8 @@ To install **Button** you need to perform the following steps:
    $ autoreconf -s -i -f
    $ ./configure
 
-.. note:: Mac users can easily indicate a different Fortran compiler using
-      ``./configure F77=gfortran-mp-8``.
+.. note:: Mac users can easily indicate a different Fortran compiler using, for
+   example, ``./configure FC=gfortran-mp-12``.
 
 3.- Compile the code:
 
