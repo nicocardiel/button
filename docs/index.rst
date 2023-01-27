@@ -9,7 +9,7 @@ Welcome to button's documentation!
 **Button** is a Fortran library created by Nicolás Cardiel with the aim of
 using graphical buttons with `PGPLOT
 <http://www.astro.caltech.edu/~tjp/pgplot/>`_.
-The code was imitially developed in Fortran 77, although some minor changes
+The code was initially developed in Fortran 77, although some minor changes
 have been introduced (January 2023) to compile it as Fortran 90 code (without
 trying to make full use of the advantages of Fortran 90).
 
