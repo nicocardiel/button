@@ -29,7 +29,8 @@ To install **Button** you need to perform the following steps:
    $ ./configure
 
 .. note:: Mac users can easily indicate a different Fortran compiler using, for
-   example, ``./configure FC=gfortran-mp-12``.
+   example, ``./configure FC=gfortran-mp-13 CC=gcc-mp-13`` (note that the
+   associated C compiler is also provided).
 
 3.- Compile the code:
 
