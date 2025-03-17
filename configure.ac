@@ -3,13 +3,11 @@
 
 # Prelude
 AC_INIT([button],[1.1],[cardiel@ucm.es])
-AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([config.h.in])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs
-AC_REVISION($Revision$)
 AC_PROG_FC
 AM_PROG_AR
 LT_INIT
@@ -23,11 +21,17 @@ OSNAME=`uname -s`
 case "$OSNAME" in
   Darwin*)
     AC_MSG_RESULT(Darwin)
-    LDFLAGS="$LDFLAGS -L/opt/local/lib"
+    MY_DIR="/opt/local/lib"
+    if test -d "$MY_DIR"; then
+      LDFLAGS="$LDFLAGS -L$MY_DIR"
+    fi
   ;;
   Linux*)
     AC_MSG_RESULT(Linux)
-    LDFLAGS="$LDFLAGS -L/usr/local/pgplot"
+    MY_DIR="/usr/local/pgplot"
+    if test -d "$MY_DIR"; then
+      LDFLAGS="$LDFLAGS -L$MY_DIR"
+    fi
   ;;
 esac
 
