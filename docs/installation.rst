@@ -32,6 +32,10 @@ To install **Button** you need to perform the following steps:
    example, ``./configure FC=gfortran-mp-13 CC=gcc-mp-13`` (note that the
    associated C compiler is also provided).
 
+   In addition, it would also be necessary to indicate the location of some
+   libraries: ``./configure 'LDFLAGS=-L/opt/homebrew/opt/libx11/lib
+   -L/opt/homebrew/opt/pgplot/lib'``
+
 3.- Compile the code:
 
 ::
